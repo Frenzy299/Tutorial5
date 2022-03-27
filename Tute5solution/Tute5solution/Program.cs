@@ -8,12 +8,6 @@ namespace Tute5solution
 {
     class Program
     {
-        enum Gender
-        {
-            Male,
-            Female,
-            Other
-        }
         static void Main(string[] args)
         {
             string input = "";
