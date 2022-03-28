@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tute5solution
 {
-    class Employee
+    public class Employee
     {
         public string name { get; set; }
         public int id {get; set;}

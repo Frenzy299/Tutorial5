@@ -6,21 +6,31 @@ using System.Threading.Tasks;
 
 namespace Tute5solution
 {
+    public delegate Employee ManageWorker(int id);
+
     class Program
     {
         static void Main(string[] args)
         {
+            Action doSomething;
+            ManageWorker manage;
+
             Boss bigMan = new Boss();
-            bigMan.display();
 
-            Console.WriteLine(" ");
+            doSomething = bigMan.display;
+            manage = bigMan.Use;
 
-            bigMan.Use(102);
-            bigMan.Fire(101);
+            doSomething(); //print list
+    
+            manage(101);
 
-            Console.WriteLine(" ");
+            doSomething() ; //print list
 
-            bigMan.display();
+            // change the manage function during code execution
+            manage = bigMan.Fire;
+
+            manage(103);
+            doSomething();
         }
 
         static List<Employee> generateEmployees()
