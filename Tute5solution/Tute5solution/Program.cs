@@ -10,14 +10,17 @@ namespace Tute5solution
     {
         static void Main(string[] args)
         {
-            string input = "";
-            //printList(generateEmployees());
-            while (input != "exit")
-            {
-                Console.WriteLine("Search for which gender? ");
-                input = Console.ReadLine();
-                printList(filterByGender(generateEmployees(), input));
-            }
+            Boss bigMan = new Boss();
+            bigMan.display();
+
+            Console.WriteLine(" ");
+
+            bigMan.Use(102);
+            bigMan.Fire(101);
+
+            Console.WriteLine(" ");
+
+            bigMan.display();
         }
 
         static List<Employee> generateEmployees()
@@ -57,5 +60,16 @@ namespace Tute5solution
             return filteredList;
         }
 
+        void oldMain()
+        {
+            string input = "";
+            //printList(generateEmployees());
+            while (input != "exit")
+            {
+                Console.WriteLine("Search for which gender? ");
+                input = Console.ReadLine();
+                printList(filterByGender(generateEmployees(), input));
+            }
+        }
     }
 }

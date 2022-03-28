@@ -8,9 +8,9 @@ namespace Tute5solution
 {
     class Employee
     {
-        public string name;
-        public int id;
-        public string gender;
+        public string name { get; set; }
+        public int id {get; set;}
+        public string gender { get; set; }
 
         public override string ToString()
         {
