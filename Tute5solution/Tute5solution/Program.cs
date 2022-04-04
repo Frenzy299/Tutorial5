@@ -21,16 +21,31 @@ namespace Tute5solution
             manage = bigMan.Use;
 
             doSomething(); //print list
-    
+
             manage(101);
 
-            doSomething() ; //print list
+            doSomething(); //print list
 
             // change the manage function during code execution
             manage = bigMan.Fire;
 
             manage(103);
             doSomething();
+
+            Console.WriteLine("");
+            printList(filterByGender(bigMan.staff, "F"));
+
+            Console.WriteLine("");
+            printList(filterByGender(bigMan.staff, "M"));
+            Console.WriteLine(" \n--------\nTUTORIAL 6\n");
+
+            List<TrainingSession> sessions = new List<TrainingSession>() {
+                new TrainingSession { Title = "How to do thing", Year = 2014, Certified = new DateTime(2014, 8, 22), Mode = Mode.Conference },
+                new TrainingSession { Title = "When to do thing", Year = 2015, Certified = new DateTime(2015, 7, 15), Mode = Mode.Journal },
+                new TrainingSession { Title = "Why to do thing", Year = 2016, Certified = new DateTime(2016, 7, 29), Mode = Mode.Other }
+            };
+
+            //var freshFilter = from tr in sessions
         }
 
         static List<Employee> generateEmployees()
@@ -57,7 +72,7 @@ namespace Tute5solution
 
         static List<Employee> filterByGender(List<Employee> staff, string gender)
         {
-            List<Employee> filteredList = new List<Employee>(); ;
+            /*List<Employee> filteredList = new List<Employee>(); ;
 
             foreach (Employee e in staff)
             {
@@ -65,9 +80,13 @@ namespace Tute5solution
                 {
                     filteredList.Add(e);
                 }
-            }
+            }*/
 
-            return filteredList;
+            var filtered = from p in staff
+                           where p.gender == gender
+                           select p;
+
+            return new List<Employee>(filtered);
         }
 
         void oldMain()

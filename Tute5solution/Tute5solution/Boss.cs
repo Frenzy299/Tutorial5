@@ -8,7 +8,7 @@ namespace Tute5solution
 {
     class Boss
     {
-        private List<Employee> staff;
+        public List<Employee> staff;
 
         public Boss ()
         {
