@@ -37,15 +37,31 @@ namespace Tute5solution
 
             Console.WriteLine("");
             printList(filterByGender(bigMan.staff, "M"));
+
             Console.WriteLine(" \n--------\nTUTORIAL 6\n");
 
+            // Full list of training sessions
             List<TrainingSession> sessions = new List<TrainingSession>() {
-                new TrainingSession { Title = "How to do thing", Year = 2014, Certified = new DateTime(2014, 8, 22), Mode = Mode.Conference },
-                new TrainingSession { Title = "When to do thing", Year = 2015, Certified = new DateTime(2015, 7, 15), Mode = Mode.Journal },
-                new TrainingSession { Title = "Why to do thing", Year = 2016, Certified = new DateTime(2016, 7, 29), Mode = Mode.Other }
+                new TrainingSession { Title = "HOW TO DO THING", Year = 2021, Certified = new DateTime(2021, 9, 16), Mode = Mode.Conference },
+                new TrainingSession { Title = "WHEN TO DO THING", Year = 2015, Certified = new DateTime(2015, 7, 15), Mode = Mode.Journal },
+                new TrainingSession { Title = "WHY TO DO THING", Year = 2016, Certified = new DateTime(2016, 7, 29), Mode = Mode.Other }
             };
 
-            //var freshFilter = from tr in sessions
+            //Freshness <= 200 days
+            var freshFilter = from tr in sessions
+                              where tr.Freshness <= 200
+                              select tr;
+            
+            //Occurred between 2014 and 2019
+            var dateFilter = from tr in sessions
+                             where tr.Year >= 2014 && tr.Year <= 2019
+                             select tr;
+
+            //Display a list with one of the filters
+            foreach (TrainingSession tr in dateFilter)
+            {
+                Console.WriteLine(tr);
+            }
         }
 
         static List<Employee> generateEmployees()
